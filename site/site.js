@@ -22,7 +22,7 @@ function clock() {
         document.layers.doc_time.document.close();
     }
     else
-        document.getElementById("doc_time").innerHTML = date_time; 
+        document.getElementById("doc_time").innerHTML = date_time;
     setTimeout("clock()", 100);
 }
 clock();
@@ -35,9 +35,9 @@ function res() {
         document.layers.resolution.document.close();
     }
     else {
-        
+
         document.getElementById("resolution").innerHTML = resolution;
-        setTimeout("res()",2000);
+        setTimeout("res()", 2000);
     }
 }
 res();
@@ -45,22 +45,22 @@ res();
 function tableCreate() {
     var y = document.getElementById('y').value;
     var x = document.getElementById('x').value;
-    if (x > 50|| y > 10) {
+    if (x > 50 || y > 10) {
         alert("Too big value");
     }
     else {
         var tableArr = ['<table>'];
-        
+
         for (var i = 0; i < x; i++) {
             tableArr.push('<tr>' + '</tr>');
-            tableArr.join("") 
+            tableArr.join("")
             for (var p = 0; p < y; p++) {
                 tableArr.push('<td>' + '<input>' + '</td>');
-                tableArr.join("") 
+                tableArr.join("")
             }
         }
         tableArr.push('</table>');
-        
+
         document.getElementById('table').innerHTML = tableArr.join('');
     }
 
@@ -69,8 +69,7 @@ function tableCreate() {
 function restartTimer(evt) {
     evt = evt || window.event;
     if (evt.keyCode == 27) {
-        t = new Date;
-        s = 0;
+        New_start();
     }
 };
 
@@ -79,17 +78,16 @@ t.setHours(0, 0, 0, 0);
 function Timer() {
     t = new Date(t.getTime() + (new Date).getTime() - s.getTime());
     document.getElementsByTagName("span")[0].innerHTML = t.toLocaleTimeString();
-    s = new Date;
+    s = new Date();
     n = setTimeout(arguments.callee, 100)
 }
-
 function New_start() {
+    s = new Date();
     t.setHours(0, 0, 0, 0);
-    s = new Date;
-    Timer()
+    Timer();
 }
 function Pause() {
-    s ? (window.clearTimeout(n), s = !1) : (s = new Date, Timer());
+    s ? (window.clearTimeout(n), s = !1) : s = new Date, Timer();
 };
 siteTime.addEventListener("mouseover", Pause);
 siteTime.addEventListener("mouseout", Pause);
@@ -101,6 +99,9 @@ var controls = document.querySelectorAll('.controls');
 for (var i = 0; i < controls.length; i++) {
     controls[i].style.display = 'inline-block';
 }
+
+
+
 
 var slides = document.querySelectorAll('#slides .slide');
 var currentSlide = 0;
