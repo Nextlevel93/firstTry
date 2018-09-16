@@ -1,0 +1,6 @@
+ <header>
+        <script src="site.js"></script>
+        <span id="doc_time" class="clock"></span>
+        <h1>Навигация по сайту</h1>
+        <nav><a>First Link</a><a>Second Link</a><a>Third Link</a></nav>
+  </header>
